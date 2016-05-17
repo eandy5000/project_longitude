@@ -1,0 +1,29 @@
+<h1>Sign up!</h1>
+
+<% if @user.errors.any? %>
+
+<h2>This action was prevented by the following errors</h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+    </ul>
+
+<% end %>
+
+
+
+
+<%= form_for @user do |f| %>
+
+<p><%= f.label :username %>:</p>
+<p><%= f.text_field :username, placeholder: "Enter Username" %></p>
+<p><%= f.label :email %>:</p>
+<p><%= f.text_field :email %></p>
+<p><%= f.label :password %>:</p>
+<p><%= f.password_field :password %></p>
+
+<%= f.submit "Sign up" %>
+
+<%end%>

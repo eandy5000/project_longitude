@@ -4,6 +4,7 @@
     <tr>
         <td>Title</td>
         <td>Description</td>
+        <td>details</td>
         <td>edit</td>
         <td>show</td>
         <td>delete</td>
@@ -12,6 +13,9 @@
     <tr>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
+        <td>By <%= article.user.username if article.user %>  <%= time_ago_in_words(article.created_at) %> ago,
+            Updated: <%= time_ago_in_words(article.updated_at) %>
+        </td>
         <td><%= link_to 'edit', edit_article_path(article) %></td>
         <td><%= link_to 'show', article_path(article) %></td>
         <td><%= link_to 'delete', article_path(article), method: :delete, data: {confirm: "Are you sure"} %></td>
