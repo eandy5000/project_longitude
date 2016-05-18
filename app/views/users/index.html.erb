@@ -1,5 +1,8 @@
-<h1>Bloggers List</h1>
 
+<div>
+    <%= will_paginate %>
+</div>
+<h1>Bloggers List</h1>
 <% @users.each do |user| %>
 <ul>
     <li><%= link_to user.username, user_path(user) %></li>
@@ -7,3 +10,7 @@
 </ul>
 
 <%end%>
+
+<div>
+    <%= will_paginate %>
+</div>
