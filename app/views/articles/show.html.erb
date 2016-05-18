@@ -1,5 +1,14 @@
 <h1>Article details</h1>
 
+
+
+<ul>
+    <li><strong>Author: </strong><%= link_to @article.user.username, user_path(@article.user) %></li>
+    <li><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></li>
+</ul>
+
+
+
 <h3>Title: <%= @article.title %></h3>
 
 <p><strong>Description: </strong><%= @article.description %></p>
