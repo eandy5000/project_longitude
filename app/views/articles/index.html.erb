@@ -20,9 +20,11 @@
         <td>By <%= article.user.username if article.user %>  <%= time_ago_in_words(article.created_at) %> ago,
             Updated: <%= time_ago_in_words(article.updated_at) %>
         </td>
-        <td><%= link_to 'edit', edit_article_path(article) %></td>
         <td><%= link_to 'show', article_path(article) %></td>
+        <% if logged_in?  && current_user == article.user %>
+        <td><%= link_to 'edit', edit_article_path(article) %></td>
         <td><%= link_to 'delete', article_path(article), method: :delete, data: {confirm: "Are you sure"} %></td>
+        <% end %> 
     <% end %>    
     </tr>
 
