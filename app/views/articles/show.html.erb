@@ -14,7 +14,7 @@
 <p><strong>Description: </strong><%= @article.description %></p>
 <ul>
     <li><%= link_to "See all articles", articles_path %></li>
-    <% if logged_in? && current_user == @article.user %>
+    <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
     <li><%= link_to 'edit article', edit_article_path(@article) %></li>
     <li><%= link_to 'delete article', article_path(@article), method: :delete, data: {confirm: "are you sure"}%></li>
     <% end %>

@@ -8,3 +8,6 @@
     <li><%= link_to 'Sign up', signup_path %></li>
     <% end %>
 </ul>
+<% if current_user.try(:admin?) %>
+<h5>Admin</h5>
+<%end%>
