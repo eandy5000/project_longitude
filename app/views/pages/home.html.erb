@@ -1,1 +1,6 @@
-<h1>This is the home page!</h1>
+<div class="jumbotron center">
+    <h1>Alpha Blog</h1>
+    <% if !logged_in? %>
+    <%= link_to "Sign up Now!", signup_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
+</div>
