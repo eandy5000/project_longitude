@@ -23,6 +23,7 @@
             <li><%= link_to "Create Article", new_article_path %></li>
             <li><%= link_to "User Page", user_path(current_user.id) %></li>
             <li><%= link_to "Articles", articles_path %></li>
+            <li><%= link_to "Home Page", root_path %></li>
           </ul>
         </li>
         <% end %>
@@ -48,6 +49,7 @@
             <li><%= link_to "Edit User", edit_user_path(current_user.id) %></li>
             <li><%= link_to "User Page", user_path(current_user.id) %></li>
             <li><%= link_to "All Users", users_path %></li>
+            <li><%= link_to "Home Page", root_path %></li>
           </ul>
         </li>
         <% end %>

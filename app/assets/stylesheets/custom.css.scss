@@ -20,3 +20,28 @@ $navbar-default-bg: #08088a;
 .center {
     text-align: center;
 }
+
+.jumbotron {
+    background-image: url(http://www.fillmurray.com/500/630);
+    height: 500px;
+    color:white;
+    
+}
+
+.footer {
+    background-color: orange;
+    
+    p:last-child {
+        padding-bottom: 20px;
+    }
+    
+    h6 {
+        padding-top: 20px;
+    }
+    
+    h6::first-letter {
+        font-size: 15px;
+    }
+
+}
+

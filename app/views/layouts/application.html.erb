@@ -11,6 +11,7 @@
 <%= render('shared/nav') %>
 
 
+
 <% flash.each do |name, msg|%>
 <ul>
   <li><%= msg %></li>
@@ -27,7 +28,7 @@
 <%= yield %>
 </div>
 
-
+<%= render('shared/footer') %>
 
 <%= debug(params) if Rails.env.development? %>
 
