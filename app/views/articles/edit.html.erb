@@ -3,20 +3,35 @@
 
 
 <% if @article.errors.any? %>
-    <h2>This action cannot be taken because of the following errors</h2>
-        <ul>
-            <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <%end%>
-        </ul>
-<%end%>
+<div class="row">
+    <div class="col-md-6 col-offset-2">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+            <h2 class="panel-title">
+            <%= pluralize(@article.errors.count, "Error") %>
+            prevent this action from being taken
+            </h2>
+            </div>
+            <div class="panel-body panel-danger">
+                <ul>
+                    <% @article.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% end %>
+<hr>
 
 
 
-<%= form_for @article do |f| %>
+<%= form_for(@article, :html => {class: "form-horizontal", role: "form" }) do |f| %>
     <div class="form-group">
         <div class="control-label col-md-2">
-        <%=  f.label :title %>:
+        <%=  f.label :title %>
         </div>
         <div class="col-md-10">
         <%= f.text_field :title, class: "form-control", autofocus: true %>
@@ -25,7 +40,7 @@
     
      <div class="form-group">
         <div class="control-label col-md-2">
-        <%=  f.label :description %>:
+        <%=  f.label :description %>
         </div>
         <div class="col-md-10">
         <%= f.text_area :description, class: "form-control", rows: 5 %>
@@ -38,5 +53,5 @@
 
 <%end%>
 
-<%= link_to "See all articles", articles_path, class: "btn btn-lrg btn-default" %>
+[<%= link_to "Cancel Edit", articles_path %> ]
 

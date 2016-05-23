@@ -1,29 +1,62 @@
 <h1>Sign up!</h1>
 
 <% if @user.errors.any? %>
-
-<h2>This action was prevented by the following errors</h2>
-
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-    </ul>
+<div class="row">
+    <div class="col-md-6 col-offset-2">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+            <h2 class="panel-title">
+            <%= pluralize(@user.errors.count, "Error") %>
+            prevent this action from being taken
+            </h2>
+            </div>
+            <div class="panel-body panel-danger">
+                <ul>
+                    <% @user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <% end %>
+<hr>
 
 
 
 
 <%= form_for @user do |f| %>
 
-<p><%= f.label :username %>:</p>
-<p><%= f.text_field :username, placeholder: "Enter Username" %></p>
-<p><%= f.label :email %>:</p>
-<p><%= f.text_field :email %></p>
-<p><%= f.label :password %>:</p>
-<p><%= f.password_field :password %></p>
+<div class="form-group">
+    <label>
+        <%= f.label :username %>
+    </label>
+    <%= f.text_field :username, class: "form-control",
+     autofocus: true,
+     placeholder: "Enter username" %>
+</div>
+<div class="form-group">
+    <label>
+        <%= f.label :email %>
+    </label>
+    <%= f.text_field :email, 
+    class: "form-control",
+    placeholder: "Enter email" %>
+</div>
 
-<%= f.submit "Sign up" %>
+<div class="form-group">
+    <label>
+        <%= f.label :password %>
+    </label>
+    <%= f.password_field :password, 
+    class: "form-control",
+    placeholder: "Enter password"  %>
+</div>
+
+<%= f.submit "Sign Up!", class: "btn btn-lrg btn-primary" %>
 
 <%end%>
+<br>
+[<%= link_to "Cancle", root_path %>]
