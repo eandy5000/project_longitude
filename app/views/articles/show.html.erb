@@ -2,20 +2,21 @@
 
 
 
-<ul>
-    <li><strong>Author: </strong><%= link_to @article.user.username, user_path(@article.user) %></li>
-    <li><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></li>
-</ul>
+
+    <h4><strong>Author: </strong><%= link_to @article.user.username, user_path(@article.user) %></h4>
+    <p><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></p>
+
 
 
 
 <h3>Title: <%= @article.title %></h3>
 
 <p><strong>Description: </strong><%= @article.description %></p>
-<ul>
-    <li><%= link_to "See all articles", articles_path %></li>
+
+    <%= link_to "See all articles", articles_path, class: "btn btn-lrg btn-primary" %>
     <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-    <li><%= link_to 'edit article', edit_article_path(@article) %></li>
-    <li><%= link_to 'delete article', article_path(@article), method: :delete, data: {confirm: "are you sure"}%></li>
+    <%= link_to 'edit article', edit_article_path(@article), class: "btn btn-lrg btn-warning" %>
+    <%= link_to 'delete article', article_path(@article), method: :delete, data: {confirm: "are you sure"},
+    class: "btn btn-lrg btn-danger" %>
     <% end %>
-</ul>
+
