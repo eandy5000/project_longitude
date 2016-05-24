@@ -13,7 +13,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
         #@article.user = User.first
         @article.user = current_user
         if @article.save
-            flash[:notice]="Article was saved"
+            flash[:success]="Article was saved"
             redirect_to articles_path(@article)
         else
             render 'new'    
@@ -32,7 +32,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
         
         
         if @article.update(article_params)
-            flash[:notice] = "Article Successfully Updated"
+            flash[:success] = "Article Successfully Updated"
             redirect_to article_path(@article)
         else    
             render 'edit'
@@ -47,7 +47,7 @@ before_action :require_same_user, only: [:edit, :update, :destroy]
     def destroy
         
         @article.destroy
-        flash[:notice] = "Article was deleted"
+        flash[:danger] = "Article was deleted"
         redirect_to articles_path
     end
     

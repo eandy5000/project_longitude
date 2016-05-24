@@ -4,15 +4,17 @@
     <%= will_paginate %>
 </div>
 
-<table>
+<table class="table table-striped table-hover">
+   <thead>
     <tr>
         <td>Title</td>
         <td>Description</td>
-        <td>details</td>
-        <td>edit</td>
-        <td>show</td>
-        <td>delete</td>
+        <td>Details</td>
+        <td>Show</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
+   </thead>
     <% @articles.each do |article| %>
     <tr>
         <td><%= article.title %></td>
@@ -20,10 +22,11 @@
         <td>By <%= article.user.username if article.user %>  <%= time_ago_in_words(article.created_at) %> ago,
             Updated: <%= time_ago_in_words(article.updated_at) %>
         </td>
-        <td><%= link_to 'show', article_path(article) %></td>
+        <td><%= link_to 'show', article_path(article), class: "btn btn-sml btn-default" %></td>
         <% if logged_in?  && (current_user == article.user || current_user.admin? )%>
-        <td><%= link_to 'edit', edit_article_path(article) %></td>
-        <td><%= link_to 'delete', article_path(article), method: :delete, data: {confirm: "Are you sure"} %></td>
+        <td><%= link_to 'edit', edit_article_path(article), class: "btn btn-sml btn-warning" %></td>
+        <td><%= link_to 'delete', article_path(article), method: :delete, data: {confirm: "Are you sure"},
+        class: "btn btn-sml btn-danger" %></td>
         <% end %> 
     <% end %>    
     </tr>

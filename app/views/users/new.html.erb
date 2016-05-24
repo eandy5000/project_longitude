@@ -1,61 +1,28 @@
 <h1>Sign up!</h1>
 
-<% if @user.errors.any? %>
-<div class="row">
-    <div class="col-md-6 col-offset-2">
-        <div class="panel panel-danger">
-            <div class="panel-heading">
-            <h2 class="panel-title">
-            <%= pluralize(@user.errors.count, "Error") %>
-            prevent this action from being taken
-            </h2>
-            </div>
-            <div class="panel-body panel-danger">
-                <ul>
-                    <% @user.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                    <% end %>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<% end %>
-<hr>
-
-
-
-
 <%= form_for @user do |f| %>
 
 <div class="form-group">
     <label>
         <%= f.label :username %>
     </label>
-    <%= f.text_field :username, class: "form-control",
-     autofocus: true,
-     placeholder: "Enter username" %>
+    <%= f.text_field :username, class: "form-control", autofocus: true %>
 </div>
 <div class="form-group">
     <label>
         <%= f.label :email %>
     </label>
-    <%= f.text_field :email, 
-    class: "form-control",
-    placeholder: "Enter email" %>
+    <%= f.text_field :email, class: "form-control" %>
 </div>
 
 <div class="form-group">
     <label>
         <%= f.label :password %>
     </label>
-    <%= f.password_field :password, 
-    class: "form-control",
-    placeholder: "Enter password"  %>
+    <%= f.password_field :password, class: "form-control"%>
 </div>
 
-<%= f.submit "Sign Up!", class: "btn btn-lrg btn-primary" %>
+<%= f.submit "Update your account", class: "btn btn-lrg btn-primary" %>
 
 <%end%>
 <br>
