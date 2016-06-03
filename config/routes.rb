@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :articles
   
   resources :users, except: [:new]
+  
+  resources :categories, except: [:destroy]
 # or post 'users', to: 'users#create'  
 
   # Example of regular route:
